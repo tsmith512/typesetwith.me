@@ -5,9 +5,12 @@
       snap: true,
       x: (5/10),
       animationCallback: function(x, y) {
-        var lineHeight = 1.25*x + 0.75;
+        var lineHeight = 1.25*x + 1;
         $('article').css('line-height', lineHeight);
-        $('#adjust-lineheight .handle').text(lineHeight);
+        $('#adjust-lineheight .handle')
+          .text(lineHeight)
+          .removeClass('normal warning-low warning-high bad')
+          .addClass(alertLevel(2/10, 4/10, 6/10, 8/10, x));
       }
     });
 
@@ -18,8 +21,10 @@
       animationCallback: function(x, y) {
         var articleWidth = (60 * x) + 20; // 0 = 20em --> 1 = 80em;
         $('article').css('width', articleWidth + 'em');
-        $('#adjust-width .handle').text(articleWidth + 'em');
-
+        $('#adjust-width .handle')
+          .text(articleWidth + 'em')
+          .removeClass('normal warning-low warning-high bad')
+          .addClass(alertLevel(1/10, 2/10, 5/10, 7/10, x));
         setTimeout(charsPerLine, 1000);
       }
     });
@@ -44,6 +49,18 @@
     var cpl = Math.floor(characters / lines); // APPROXIMATE!
 
     $('#characters-per-line').text(cpl);
+  }
+
+  alertLevel = function(min, low, high, max, current) {
+    if ( low <= current && current <= high ) {
+      return 'normal';
+    } else if ( high < current && current <= max ) {
+      return 'warning-high';
+    } else if ( min <= current && current < low ) {
+      return 'warning-low';
+    } else if ( current < min || current > max ) {
+      return 'bad';
+    }
   }
 
 })(jQuery);

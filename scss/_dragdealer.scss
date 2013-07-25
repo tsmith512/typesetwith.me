@@ -28,6 +28,18 @@
 	color: #FFF;
 	line-height: 24px;
 	text-align: center;
+
+	&.normal {
+		background: #009900;
+	}
+
+	&.warning-low, &.warning-high {
+		background: #CC8822;
+	}
+
+	&.bad {
+		background: #CC3300;
+	}
 }
 
 .dragdealer .disabled {

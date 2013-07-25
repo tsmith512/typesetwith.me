@@ -564,6 +564,12 @@ body {
   color: #FFF;
   line-height: 24px;
   text-align: center; }
+  .dragdealer .handle.normal {
+    background: #009900; }
+  .dragdealer .handle.warning-low, .dragdealer .handle.warning-high {
+    background: #CC8822; }
+  .dragdealer .handle.bad {
+    background: #CC3300; }
 
 .dragdealer .disabled {
   background: #898989; }
