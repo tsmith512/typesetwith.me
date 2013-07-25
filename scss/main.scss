@@ -16,7 +16,8 @@ $breakpoints:
   'portrait'      (orientation portrait);
 
 $grids: 12;
-$gutters: 1/3;    
+$gutters: 0;
 
+@import "body";
 @import "sidebar";
 @import "sample";

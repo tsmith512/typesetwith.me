@@ -1,8 +1,19 @@
 aside {
-  background: black;
-  color: white;
-
   @include respond-to('medium') {
     @include grid-span(3,1);
+
+    padding: 0.5em;
+    color: #ccc;
+
+    > div {
+      border-top: 1px solid lighten(#1a1a1a, 8%);
+      border-bottom: 1px solid black;
+    }
+
+    header, section, footer {
+      padding: 1em 0.5em;
+      border-top: 1px solid black;
+      border-bottom: 1px solid lighten(#1a1a1a, 8%);
+    }
   }
 }

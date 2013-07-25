@@ -482,21 +482,40 @@ img, video {
   max-width: 100%;
   height: auto; }
 
-aside {
-  background: black;
-  color: white; }
-  @media (min-width: 980px) {
-    aside {
-      width: 23.40426%;
-      float: left;
-      margin-right: -100%;
-      margin-left: 0%;
-      clear: none; } }
+html {
+  height: 100%; }
+
+body {
+  height: 100%;
+  background: #1e1e1e;
+  font-family: 'Open Sans', sans-serif; }
 
 @media (min-width: 980px) {
-  article {
-    width: 74.46809%;
+  aside {
+    width: 25%;
+    float: left;
+    margin-right: -100%;
+    margin-left: 0%;
+    clear: none;
+    padding: 0.5em;
+    color: #ccc; }
+    aside > div {
+      border-top: 1px solid #2e2e2e;
+      border-bottom: 1px solid black; }
+    aside header, aside section, aside footer {
+      padding: 1em 0.5em;
+      border-top: 1px solid black;
+      border-bottom: 1px solid #2e2e2e; } }
+
+@media (min-width: 980px) {
+  main {
+    width: 75%;
     float: right;
     margin-left: 0;
     margin-right: 0;
-    clear: none; } }
+    clear: none;
+    padding: 0.5em; }
+    main article {
+      background: #eee;
+      border: 1px solid #ccc;
+      padding: 0.5em; } }

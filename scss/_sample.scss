@@ -1,5 +1,14 @@
-article {
+main {
   @include respond-to('medium') {
     @include grid-span(9,4);
+
+    padding: 0.5em;
+
+    article {
+      background: #eee;
+      border: 1px solid #ccc;
+      padding: 0.5em;
+    }
   }
+
 }
