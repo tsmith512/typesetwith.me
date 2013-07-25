@@ -33,6 +33,21 @@
         setTimeout(charsPerLine, 1000);
       }
     });
+
+    new Dragdealer('adjust-size',{
+      steps: 10 + 1,
+      snap: true,
+      x: (5/10),
+      animationCallback: function(x, y) {
+        var fontSize = (20 * x) + 8; // 0 = 8px --> 1 = 28px;
+        $('article p').css('font-size', fontSize + 'px');
+        $('#adjust-size .handle')
+          .text(fontSize + 'px')
+          .removeClass('normal warning-low warning-high bad')
+          .addClass(alertLevel(2/10, 3/10, 7/10, 8/10, x));
+        setTimeout(charsPerLine, 1000);
+      }
+    });
   })
 
   $(window).load(function(){
@@ -54,7 +69,7 @@
     // Knowing these data, approximate our characters per line
     var cpl = Math.floor(characters / lines); // APPROXIMATE!
 
-    $('#placeholder-characters-per-line').text(cpl);
+    $('#placeholder-characters-per-line-measure, #placeholder-characters-per-line-size').text(cpl);
   }
 
   lineLeading = function () {
