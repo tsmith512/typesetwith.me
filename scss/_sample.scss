@@ -1,0 +1,5 @@
+article {
+  @include respond-to('medium') {
+    @include grid-span(9,4);
+  }
+}

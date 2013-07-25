@@ -1,0 +1,8 @@
+aside {
+  background: black;
+  color: white;
+
+  @include respond-to('medium') {
+    @include grid-span(3,1);
+  }
+}
