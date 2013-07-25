@@ -2,8 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>typesetwith.me | An interactive guide to interactive typography.</title>
+  <title>typesetwith.me | An interactive guide to typography</title>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="css/main.css" />
+  <script src="js/vendor/jquery-1.10.2.min.js"></script>
+  <script src="js/vendor/dragdealer.js"></script>
+  <script src="js/main.js"></script>
 </head>
 <body>
   <aside>
@@ -12,9 +16,23 @@
         <h1>typesetwith.me</h1>
         <p>An interactive typography guide.</p>
       </header>
-      <section>
-        form area
-      </section>
+      <div class="controls">
+        <section>
+          <h2>Measure</h2>
+          <div id="adjust-width" class="dragdealer">
+            <div class="handle"></div>
+          </div>
+          <p>
+            Estimated characters per line: <span class="placeholder" id="characters-per-line"></span>
+          </p>
+        </section>
+        <section>
+          <h2>Leading</h2>
+          <div id="adjust-lineheight" class="dragdealer">
+            <div class="handle"></div>
+          </div>
+        </section>
+      </div>
       <footer>
         Footer area
       </footer>

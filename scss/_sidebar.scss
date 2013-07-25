@@ -1,11 +1,11 @@
 aside {
+  
   @include respond-to('medium') {
     @include grid-span(3,1);
 
     padding: 0.5em;
-    color: #ccc;
 
-    > div {
+    .wrap {
       border-top: 1px solid lighten(#1a1a1a, 8%);
       border-bottom: 1px solid black;
     }

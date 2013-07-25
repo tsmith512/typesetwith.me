@@ -161,6 +161,9 @@ h6 {
   margin-top: 2.23881em;
   margin-bottom: 2.23881em; }
 
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.15; }
+
 /**
  * Address styling not present in IE 8/9, Safari 5, and Chrome.
  */
@@ -488,6 +491,7 @@ html {
 body {
   height: 100%;
   background: #1e1e1e;
+  color: #ccc;
   font-family: 'Open Sans', sans-serif; }
 
 @media (min-width: 980px) {
@@ -497,9 +501,8 @@ body {
     margin-right: -100%;
     margin-left: 0%;
     clear: none;
-    padding: 0.5em;
-    color: #ccc; }
-    aside > div {
+    padding: 0.5em; }
+    aside .wrap {
       border-top: 1px solid #2e2e2e;
       border-bottom: 1px solid black; }
     aside header, aside section, aside footer {
@@ -518,4 +521,49 @@ body {
     main article {
       background: #eee;
       border: 1px solid #ccc;
-      padding: 0.5em; } }
+      padding: 0.5em; }
+      main article, main article * {
+        -webkit-transition: all 0.5s linear;
+        -moz-transition: all 0.5s linear;
+        -o-transition: all 0.5s linear;
+        transition: all 0.5s linear; } }
+
+/**
+ * Dragdealer JS v0.9.5
+ * http://code.ovidiu.ch/dragdealer-js
+ *
+ * Copyright (c) 2010, Ovidiu Chereches
+ * MIT License
+ * http://legal.ovidiu.ch/licenses/MIT
+ */
+.dragdealer {
+  position: relative;
+  background: #111;
+  border: 1px solid #222;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  height: 28px;
+  padding: 0 2px; }
+
+.dragdealer .handle {
+  position: absolute;
+  cursor: pointer;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  width: 90px;
+  height: 24px;
+  margin-top: 1px;
+  font-size: 0.875em;
+  background: #666;
+  color: #FFF;
+  line-height: 24px;
+  text-align: center; }
+
+.dragdealer .disabled {
+  background: #898989; }
