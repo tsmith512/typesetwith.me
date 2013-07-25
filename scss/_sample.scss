@@ -9,7 +9,7 @@ main {
       border: 1px solid #ccc;
       padding: 0.5em;
 
-      &, * { @include transition(all .5s linear) };
+      &, * { @include transition(all .5s ease) };
     }
 
   }

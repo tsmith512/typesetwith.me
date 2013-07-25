@@ -1,5 +1,9 @@
 ;(function($){
   $(document).ready(function(){
+    $('aside section h2').click(function(){
+      $(this).parent('section').toggleClass('active');
+    });
+
     new Dragdealer('adjust-lineheight',{
       steps: 10 + 1,
       snap: true,
@@ -10,7 +14,8 @@
         $('#adjust-lineheight .handle')
           .text(lineHeight)
           .removeClass('normal warning-low warning-high bad')
-          .addClass(alertLevel(2/10, 4/10, 6/10, 8/10, x));
+          .addClass(alertLevel(2/10, 4/10, 6/10, 9/10, x));
+        setTimeout(lineLeading, 1000);
       }
     });
 
@@ -32,6 +37,7 @@
 
   $(window).load(function(){
     setTimeout(charsPerLine, 1000);
+    setTimeout(lineLeading, 1000);
   });
 
   charsPerLine = function() {
@@ -48,7 +54,15 @@
     // Knowing these data, approximate our characters per line
     var cpl = Math.floor(characters / lines); // APPROXIMATE!
 
-    $('#characters-per-line').text(cpl);
+    $('#placeholder-characters-per-line').text(cpl);
+  }
+
+  lineLeading = function () {
+    var fontSize = parseInt( $('article p:first').css('font-size').replace('px','') );
+    var lineHeight = parseInt( $('article p:first').css('line-height').replace('px','') );
+    var leading = lineHeight - fontSize;
+
+    $('#placeholder-leading').text(leading + "px");
   }
 
   alertLevel = function(min, low, high, max, current) {

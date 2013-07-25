@@ -1,19 +1,59 @@
 aside {
-  
-  @include respond-to('medium') {
-    @include grid-span(3,1);
+  @include grid-span(3,1);
 
-    padding: 0.5em;
+  padding: 0.5em;
 
-    .wrap {
-      border-top: 1px solid lighten(#1a1a1a, 8%);
-      border-bottom: 1px solid black;
+  .wrap {
+    border-top: 1px solid lighten(#1a1a1a, 8%);
+    border-bottom: 1px solid black;
+  }
+
+  header, .controls, footer {
+    padding: 0.5em 0;
+    border-top: 1px solid black;
+    border-bottom: 1px solid lighten(#1a1a1a, 8%);
+  }
+
+  section {
+    h2 {
+      padding: 0.25em;
+      margin: 0.5em 0 0 0;
+      background: #222;
+      border: 1px solid #292929;
+      border-bottom: 0;
+      color: #666;
+      text-transform: uppercase;
+      font-weight: 300;
     }
 
-    header, section, footer {
-      padding: 1em 0.5em;
-      border-top: 1px solid black;
-      border-bottom: 1px solid lighten(#1a1a1a, 8%);
+    &.active h2, h2:hover {
+      background: #333;
+      color: #888;
+    }
+
+    .details {
+      overflow: hidden;
+      display: none;
+      font-size: 0.875em;
+      padding: 0.25em 0;
+      border-bottom: 1px solid #333;
+      color: #999;
+      > :first-child { margin-top: 0; }
+      > :last-child { margin-bottom: 0; }
+    }
+
+    &.active .details {
+      display: block;
     }
   }
+
+  .placeholder {
+    display: inline-block;
+    background: #111;
+    border: 1px solid #222;
+    padding: .125em .375em;
+    @include border-radius(3px);
+    font-size: 0.875em;
+  }
+  
 }

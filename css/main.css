@@ -494,21 +494,56 @@ body {
   color: #ccc;
   font-family: 'Open Sans', sans-serif; }
 
-@media (min-width: 980px) {
-  aside {
-    width: 25%;
-    float: left;
-    margin-right: -100%;
-    margin-left: 0%;
-    clear: none;
-    padding: 0.5em; }
-    aside .wrap {
-      border-top: 1px solid #2e2e2e;
-      border-bottom: 1px solid black; }
-    aside header, aside section, aside footer {
-      padding: 1em 0.5em;
-      border-top: 1px solid black;
-      border-bottom: 1px solid #2e2e2e; } }
+aside {
+  width: 25%;
+  float: left;
+  margin-right: -100%;
+  margin-left: 0%;
+  clear: none;
+  padding: 0.5em; }
+  aside .wrap {
+    border-top: 1px solid #2e2e2e;
+    border-bottom: 1px solid black; }
+  aside header, aside .controls, aside footer {
+    padding: 0.5em 0;
+    border-top: 1px solid black;
+    border-bottom: 1px solid #2e2e2e; }
+  aside section h2 {
+    padding: 0.25em;
+    margin: 0.5em 0 0 0;
+    background: #222;
+    border: 1px solid #292929;
+    border-bottom: 0;
+    color: #666;
+    text-transform: uppercase;
+    font-weight: 300; }
+  aside section.active h2, aside section h2:hover {
+    background: #333;
+    color: #888; }
+  aside section .details {
+    overflow: hidden;
+    display: none;
+    font-size: 0.875em;
+    padding: 0.25em 0;
+    border-bottom: 1px solid #333;
+    color: #999; }
+    aside section .details > :first-child {
+      margin-top: 0; }
+    aside section .details > :last-child {
+      margin-bottom: 0; }
+  aside section.active .details {
+    display: block; }
+  aside .placeholder {
+    display: inline-block;
+    background: #111;
+    border: 1px solid #222;
+    padding: .125em .375em;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    border-radius: 3px;
+    font-size: 0.875em; }
 
 @media (min-width: 980px) {
   main {
@@ -523,10 +558,10 @@ body {
       border: 1px solid #ccc;
       padding: 0.5em; }
       main article, main article * {
-        -webkit-transition: all 0.5s linear;
-        -moz-transition: all 0.5s linear;
-        -o-transition: all 0.5s linear;
-        transition: all 0.5s linear; } }
+        -webkit-transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+        -o-transition: all 0.5s ease;
+        transition: all 0.5s ease; } }
 
 /**
  * Dragdealer JS v0.9.5
@@ -539,12 +574,7 @@ body {
 .dragdealer {
   position: relative;
   background: #111;
-  border: 1px solid #222;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  -ms-border-radius: 3px;
-  -o-border-radius: 3px;
-  border-radius: 3px;
+  border: 1px solid #292929;
   height: 28px;
   padding: 0 2px; }
 
@@ -563,7 +593,11 @@ body {
   background: #666;
   color: #FFF;
   line-height: 24px;
-  text-align: center; }
+  text-align: center;
+  -webkit-transition: left 0.25s ease;
+  -moz-transition: left 0.25s ease;
+  -o-transition: left 0.25s ease;
+  transition: left 0.25s ease; }
   .dragdealer .handle.normal {
     background: #009900; }
   .dragdealer .handle.warning-low, .dragdealer .handle.warning-high {

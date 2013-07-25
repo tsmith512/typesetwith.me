@@ -8,40 +8,41 @@
  */
 
 .dragdealer {
-	position: relative;
-	background: #111;
-	border: 1px solid #222;
-	@include border-radius(3px);
-	height: 28px;
-	padding: 0 2px;
+  position: relative;
+  background: #111;
+  border: 1px solid #292929;
+  height: 28px;
+  padding: 0 2px;
 }
 .dragdealer .handle {
-	position: absolute;
-	cursor: pointer;
+  position: absolute;
+  cursor: pointer;
 
-	@include border-radius(3px);
-	width: 90px;
-	height: 24px;
-	margin-top: 1px;
-	font-size: 0.875em;
-	background: #666;
-	color: #FFF;
-	line-height: 24px;
-	text-align: center;
+  @include border-radius(3px);
+  width: 90px;
+  height: 24px;
+  margin-top: 1px;
+  font-size: 0.875em;
+  background: #666;
+  color: #FFF;
+  line-height: 24px;
+  text-align: center;
 
-	&.normal {
-		background: #009900;
-	}
+  @include transition(left .25s ease);
 
-	&.warning-low, &.warning-high {
-		background: #CC8822;
-	}
+  &.normal {
+    background: #009900;
+  }
 
-	&.bad {
-		background: #CC3300;
-	}
+  &.warning-low, &.warning-high {
+    background: #CC8822;
+  }
+
+  &.bad {
+    background: #CC3300;
+  }
 }
 
 .dragdealer .disabled {
-	background: #898989;
+  background: #898989;
 }
