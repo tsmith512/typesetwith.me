@@ -558,10 +558,12 @@ aside {
       border: 1px solid #ccc;
       padding: 0.5em; }
       main article, main article * {
-        -webkit-transition: all 0.5s ease;
-        -moz-transition: all 0.5s ease;
-        -o-transition: all 0.5s ease;
-        transition: all 0.5s ease; } }
+        -webkit-transition: all 0.25s ease;
+        -moz-transition: all 0.25s ease;
+        -o-transition: all 0.25s ease;
+        transition: all 0.25s ease; }
+      main article h1, main article h2, main article h3, main article h4, main article h5, main article h6 {
+        color: black; } }
 
 /**
  * Dragdealer JS v0.9.5

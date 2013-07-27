@@ -9,7 +9,7 @@
       snap: true,
       x: (5/10),
       animationCallback: function(x, y) {
-        var lineHeight = 1.25*x + 1;
+        var lineHeight = (1.25*x) + 1;
         $('article').css('line-height', lineHeight);
         $('#adjust-lineheight .handle')
           .text(lineHeight)
@@ -24,10 +24,10 @@
       snap: true,
       x: (5/10),
       animationCallback: function(x, y) {
-        var articleWidth = (60 * x) + 20; // 0 = 20em --> 1 = 80em;
-        $('article').css('width', articleWidth + 'em');
+        var articleWidth = (1000*x) + 100; // 0 = 100px --> 1 = 1100px;
+        $('article').css('width', articleWidth + 'px');
         $('#adjust-width .handle')
-          .text(articleWidth + 'em')
+          .text(articleWidth + 'px')
           .removeClass('normal warning-low warning-high bad')
           .addClass(alertLevel(1/10, 2/10, 5/10, 7/10, x));
         setTimeout(charsPerLine, 1000);
@@ -40,12 +40,26 @@
       x: (5/10),
       animationCallback: function(x, y) {
         var fontSize = (20 * x) + 8; // 0 = 8px --> 1 = 28px;
-        $('article p').css('font-size', fontSize + 'px');
+        $('article').css('font-size', fontSize + 'px');
         $('#adjust-size .handle')
           .text(fontSize + 'px')
           .removeClass('normal warning-low warning-high bad')
           .addClass(alertLevel(2/10, 3/10, 7/10, 8/10, x));
         setTimeout(charsPerLine, 1000);
+      }
+    });
+
+    new Dragdealer('adjust-color',{
+      steps: 10 + 1,
+      snap: true,
+      x: (5/10),
+      animationCallback: function(x, y) {
+        var color = Math.floor(((200 * x) + 0)); // 0 = 0 --> 1 = 200
+        $('article').css('color', 'rgb(' + color + ',' + color + ',' + color + ')');
+        $('#adjust-color .handle')
+          .text(color + '/255')
+          .removeClass('normal warning-low warning-high bad')
+          .addClass(alertLevel(1/10, 3/10, 7/10, 8/10, x));
       }
     });
   })
@@ -69,7 +83,7 @@
     // Knowing these data, approximate our characters per line
     var cpl = Math.floor(characters / lines); // APPROXIMATE!
 
-    $('#placeholder-characters-per-line-measure, #placeholder-characters-per-line-size').text(cpl);
+    $('#placeholder-characters-per-line').text(cpl);
   }
 
   lineLeading = function () {
