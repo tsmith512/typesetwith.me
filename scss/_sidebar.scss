@@ -31,6 +31,10 @@ aside {
       background: #333;
       color: #888;
     }
+
+    h2:last-child {
+      border-bottom: 1px solid #292929;
+    }
   }
 
   .metrics {
@@ -68,6 +72,19 @@ aside {
 
     dd {
       border-top: 0;
+      font-weight: bold;
+
+      &.normal {
+        color: #009900;
+      }
+
+      &.warning-low, &.warning-high {
+        color: #CC8822;
+      }
+
+      &.bad {
+        color: #CC3300;
+      }
     }
   }  
 }

@@ -2,7 +2,11 @@
   $(document).ready(function(){
     $('[data-load]').click(function(){
       loadSample($(this).data('load'));
-    })
+    });
+
+    $('#get-new-sample').click(function(){
+      loadRandomSample();
+    });
 
     new Dragdealer('adjust-lineheight',{
       steps: 10 + 1,
@@ -14,8 +18,8 @@
         $('#adjust-lineheight .handle')
           .text(lineHeight)
           .removeClass('normal warning-low warning-high bad')
-          .addClass(alertLevel(2/10, 4/10, 6/10, 9/10, x));
-        setTimeout(lineLeading, 1000);
+          .addClass(alertLevel(2/10, 3/10, 7/10, 9/10, x));
+        updateMetrics();
       }
     });
 
@@ -30,7 +34,7 @@
           .text(articleWidth + 'px')
           .removeClass('normal warning-low warning-high bad')
           .addClass(alertLevel(1/10, 2/10, 5/10, 7/10, x));
-        setTimeout(charsPerLine, 1000);
+        updateMetrics();
       }
     });
 
@@ -45,7 +49,7 @@
           .text(fontSize + 'px')
           .removeClass('normal warning-low warning-high bad')
           .addClass(alertLevel(2/10, 3/10, 7/10, 8/10, x));
-        setTimeout(charsPerLine, 1000);
+        updateMetrics();
       }
     });
 
@@ -65,8 +69,7 @@
   })
 
   $(window).load(function(){
-    setTimeout(charsPerLine, 1000);
-    setTimeout(lineLeading, 1000);
+    updateMetrics();
   });
 
   charsPerLine = function() {
@@ -83,7 +86,10 @@
     // Knowing these data, approximate our characters per line
     var cpl = Math.floor(characters / lines); // APPROXIMATE!
 
-    $('#placeholder-characters-per-line').text(cpl);
+    $('#placeholder-characters-per-line')
+      .html(cpl)
+      .removeClass('normal warning-low warning-high bad')
+      .addClass(alertLevel(20, 35, 90, 120, cpl));
   }
 
   lineLeading = function () {
@@ -91,7 +97,10 @@
     var lineHeight = parseInt( $('article p:first').css('line-height').replace('px','') );
     var leading = lineHeight - fontSize;
 
-    $('#placeholder-leading').text(leading + "px");
+    $('#placeholder-leading')
+    .html(lineHeight + "px")
+      .removeClass('normal warning-low warning-high bad')
+      .addClass(alertLevel(0.12, 0.33, 0.76, 1, leading / fontSize));
   }
 
   alertLevel = function(min, low, high, max, current) {
@@ -106,10 +115,37 @@
     }
   }
 
+  updateMetrics = function() {
+    setTimeout(charsPerLine, 1000);
+    setTimeout(lineLeading, 1000);
+  }
+
   loadSample = function(sample){
-    $.get('/copy/' + sample)
-      .done(function(data){ $('article').html(data) })
-      .fail(function(){ alert('Unable to load text.'); })
+    $.ajax({
+      dataType: "html",
+      url:('/copy/' + sample),
+      cache: true
+    }).done(function(data){
+        $('article').html(data);
+        setTimeout(charsPerLine, 1000);
+      })
+      .fail(function(){
+        alert('Unable to load text.');
+      })
+  }
+
+  loadRandomSample = function() {
+    $.ajax({
+      dataType: "json",
+      url:'/copy/manifest.json',
+      cache: true
+    }).done(function(data){
+        var sample = data[Math.floor(Math.random()*data.length)];
+        loadSample(sample);
+      })
+      .fail(function(jqXhr, textStatus, error){
+        alert('Unable to load text: ' + textStatus);
+      })
   }
 
 })(jQuery);
