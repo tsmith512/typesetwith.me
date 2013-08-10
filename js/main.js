@@ -1,8 +1,8 @@
 ;(function($){
   $(document).ready(function(){
-    $('aside section h2').click(function(){
-      $(this).parent('section').toggleClass('active');
-    });
+    $('[data-load]').click(function(){
+      loadSample($(this).data('load'));
+    })
 
     new Dragdealer('adjust-lineheight',{
       steps: 10 + 1,
@@ -104,6 +104,12 @@
     } else if ( current < min || current > max ) {
       return 'bad';
     }
+  }
+
+  loadSample = function(sample){
+    $.get('/copy/' + sample)
+      .done(function(data){ $('article').html(data) })
+      .fail(function(){ alert('Unable to load text.'); })
   }
 
 })(jQuery);

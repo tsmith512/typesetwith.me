@@ -17,18 +17,28 @@
         <p>An interactive typography guide.</p>
       </header>
       <div class="controls">
-            <p>
-              Measure: <span class="placeholder" id="placeholder-characters-per-line">&emsp;</span>
-            </p>
-            <p>
-              Leading: <span class="placeholder" id="placeholder-leading">&emsp;</span>
-            </p>
+        <header>
+          <select id="select-snippet">
+            <option value="lorem" selected="selected">Lorem Ipsum</option>
+            <option value="sawyer">Tom Sawyer</option>
+          </select>
+        </header>
+        <div class="metrics">
+          <dl>
+            <div class="item">
+              <dt data-load="definition-measure.html">Measure</dt>
+              <dd class="placeholder" id="placeholder-characters-per-line">&emsp;</dd>
+            </div>
+            <div class="item">
+              <dt data-load="definition-leading.html">Leading</dt>
+              <dd class="placeholder" id="placeholder-leading">&emsp;</dd>
+            </div>
+          </dl>
+        </div>
         <section>
           <h2>Line Width</h2>
           <div id="adjust-width" class="dragdealer">
             <div class="handle"></div>
-          </div>
-          <div class="details">
           </div>
         </section>
         <section>
@@ -36,23 +46,17 @@
           <div id="adjust-lineheight" class="dragdealer">
             <div class="handle"></div>
           </div>
-          <div class="details">
-          </div>
         </section>
         <section>
           <h2>Type Size</h2>
           <div id="adjust-size" class="dragdealer">
             <div class="handle"></div>
           </div>
-          <div class="details">
-          </div>
         </section>
         <section>
           <h2>Color</h2>
           <div id="adjust-color" class="dragdealer">
             <div class="handle"></div>
-          </div>
-          <div class="details">
           </div>
         </section>
       </div>

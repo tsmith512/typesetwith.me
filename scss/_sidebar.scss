@@ -24,36 +24,50 @@ aside {
       color: #666;
       text-transform: uppercase;
       font-weight: 300;
+      letter-spacing: 2px;
     }
 
-    &.active h2, h2:hover {
+    h2:hover {
+      background: #333;
+      color: #888;
+    }
+  }
+
+  .metrics {
+    @include clearfix;
+
+    .item {
+      float: left;
+      width: 50%;
+
+      background: #111;
+      border: 1px solid #222;
+      font-size: 0.875em;      
+    }
+
+    dt, dd {
+      display: block;
+      margin: 0;
+      padding: 0.25em;
+      border: 1px solid #292929;
+      text-align: center;
+    }
+
+    dt {
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      padding-bottom: 2px;
+      background: #222;
+      color: #666;
+    }
+
+    .item.active dt, .item dt:hover {
       background: #333;
       color: #888;
     }
 
-    .details {
-      overflow: hidden;
-      display: none;
-      font-size: 0.875em;
-      padding: 0.25em 0;
-      border-bottom: 1px solid #333;
-      color: #999;
-      > :first-child { margin-top: 0; }
-      > :last-child { margin-bottom: 0; }
+    dd {
+      border-top: 0;
     }
-
-    &.active .details {
-      display: block;
-    }
-  }
-
-  .placeholder {
-    display: inline-block;
-    background: #111;
-    border: 1px solid #222;
-    padding: .125em .375em;
-    @include border-radius(3px);
-    font-size: 0.875em;
-  }
-  
+  }  
 }
