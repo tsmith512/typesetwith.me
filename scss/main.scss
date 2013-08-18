@@ -18,6 +18,19 @@ $breakpoints:
 $grids: 12;
 $gutters: 0;
 
+$blue: darken(#00B4FF, 15%);
+$green: #009900;
+$orange: #CC8822;
+$red: #CC3300;
+
+
+$dark: #1f1f1f;
+$low: #232323;
+$med: #515151;
+$high: #aaaaaa;
+$light: #eeeeee;
+
+
 @import "body";
 @import "sidebar";
 @import "sample";

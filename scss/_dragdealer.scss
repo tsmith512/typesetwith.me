@@ -9,8 +9,8 @@
 
 .dragdealer {
   position: relative;
-  background: #111;
-  border: 1px solid #292929;
+  background: white;
+  border: 1px solid darken($light, 7%);
   height: 28px;
   padding: 0 2px;
 }

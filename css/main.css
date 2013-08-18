@@ -502,9 +502,12 @@ html {
 
 body {
   height: 100%;
-  background: #1e1e1e;
-  color: #ccc;
+  background: #eeeeee;
+  color: #232323;
   font-family: 'Open Sans', sans-serif; }
+
+a {
+  color: #007eb3; }
 
 aside {
   width: 25%;
@@ -514,32 +517,52 @@ aside {
   clear: none;
   padding: 0.5em; }
   aside .wrap {
-    border-top: 1px solid #2e2e2e;
-    border-bottom: 1px solid black; }
+    border-top: 1px solid #fbfbfb;
+    border-bottom: 1px solid #e1e1e1; }
   aside header, aside .controls, aside footer {
     padding: 0.5em 0;
-    border-top: 1px solid black;
-    border-bottom: 1px solid #2e2e2e; }
+    border-top: 1px solid #e1e1e1;
+    border-bottom: 1px solid #fbfbfb; }
   aside section h2 {
     padding: 0.25em;
     margin: 0.5em 0 0 0;
-    background: #222;
-    border: 1px solid #292929;
+    background: #f3f3f3;
+    border: 1px solid #e1e1e1;
     border-bottom: 0;
-    color: #666;
+    color: #00a2e6;
     text-transform: uppercase;
     font-weight: 300;
     letter-spacing: 2px; }
-  aside section h2:hover {
-    background: #333;
-    color: #888; }
   aside section h2.solo {
-    border-bottom: 1px solid #292929; }
-  aside .metrics {
+    border-bottom: 1px solid #e1e1e1; }
+  aside section h2:hover {
+    background: #007eb3;
+    border-color: #006c99 !important;
+    color: #eeeeee; }
+  aside section.buttons {
     /* for IE 6/7 */
     *zoom: expression(this.runtimeStyle.zoom="1", this.appendChild(document.createElement("br")).style.cssText="clear:both;font:0/0 serif");
     /* non-JS fallback */
     *zoom: 1; }
+    aside section.buttons:before, aside section.buttons:after {
+      content: ".";
+      display: block;
+      height: 0;
+      overflow: hidden; }
+    aside section.buttons:after {
+      clear: both; }
+    aside section.buttons h2 {
+      width: 49.5%;
+      float: left;
+      margin: 0; }
+      aside section.buttons h2:first-child {
+        margin-right: 1%; }
+  aside .metrics {
+    /* for IE 6/7 */
+    *zoom: expression(this.runtimeStyle.zoom="1", this.appendChild(document.createElement("br")).style.cssText="clear:both;font:0/0 serif");
+    /* non-JS fallback */
+    *zoom: 1;
+    margin-top: 0.75em; }
     aside .metrics:before, aside .metrics:after {
       content: ".";
       display: block;
@@ -547,36 +570,45 @@ aside {
       overflow: hidden; }
     aside .metrics:after {
       clear: both; }
+    aside .metrics dl {
+      margin: 0; }
     aside .metrics .item {
+      width: 49.5%;
       float: left;
-      width: 50%;
-      background: #111;
-      border: 1px solid #222;
+      margin: 0;
+      background: #eeeeee;
       font-size: 0.875em; }
+      aside .metrics .item:first-child {
+        margin-right: 1%; }
     aside .metrics dt, aside .metrics dd {
       display: block;
       margin: 0;
       padding: 0.25em;
-      border: 1px solid #292929;
+      border: 1px solid #e1e1e1;
       text-align: center; }
     aside .metrics dt {
       text-transform: uppercase;
       letter-spacing: 2px;
       padding-bottom: 2px;
-      background: #222;
-      color: #666; }
+      background: #f3f3f3;
+      color: #00a2e6; }
     aside .metrics .item.active dt, aside .metrics .item dt:hover {
-      background: #333;
-      color: #888; }
+      background: #007eb3;
+      color: #eeeeee;
+      border-color: #0090cc !important; }
     aside .metrics dd {
       border-top: 0;
-      font-weight: bold; }
+      font-weight: bold;
+      background: white; }
       aside .metrics dd.normal {
-        color: #009900; }
-      aside .metrics dd.warning-low, aside .metrics dd.warning-high {
-        color: #CC8822; }
+        color: #009900;
+        background: rgba(0, 153, 0, 0.175); }
+      aside .metrics dd.warning-high, aside .metrics dd.warning-low {
+        color: #cc8822;
+        background: rgba(204, 136, 34, 0.175); }
       aside .metrics dd.bad {
-        color: #CC3300; }
+        color: #cc3300;
+        background: rgba(204, 51, 0, 0.175); }
 
 main {
   width: 75%;
@@ -587,7 +619,10 @@ main {
   padding: 0.5em; }
   main article {
     /* For accorate column width slider */
-    background: #eee;
+    -webkit-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
+    background: #f3f3f3;
     border-top: 0.5em solid #ccc;
     border-bottom: 0.5em solid #ccc;
     padding: 1em; }
@@ -623,8 +658,8 @@ main {
  */
 .dragdealer {
   position: relative;
-  background: #111;
-  border: 1px solid #292929;
+  background: white;
+  border: 1px solid gainsboro;
   height: 28px;
   padding: 0 2px; }
 

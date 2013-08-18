@@ -5,7 +5,8 @@ main {
 
   article {
     @include box-sizing(content-box); /* For accorate column width slider */
-    background: #eee;
+    @include box-shadow(0px 0px 15px rgba(0,0,0,0.15));
+    background: lighten($light, 2%);
     border: {
       top: 0.5em solid #ccc;
       bottom: 0.5em solid #ccc;
