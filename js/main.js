@@ -101,7 +101,7 @@
     // The most easily understood metric is "characters per line":
     var elemHeight = $('article p:first').height();
     var lineHeight = parseInt( $('article p:first').css('line-height').replace('px','') );
-    var characters = $('article p:first').text().length;
+    var characters = $('article p:first')[0].innerText.length;
 
     // When determining number of lines, we'll remove "half" a line. This
     // will help us account for the misleading quotient we'd get for short
