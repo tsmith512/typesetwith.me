@@ -3,7 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <title>typesetwith.me | An interactive guide to typography</title>
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
+  <!-- http://www.google.com/fonts/#UsePlace:use/Collection:Lato:400,700,400italic|PT+Serif:400,700,400italic|Lobster|Open+Sans:300italic,400italic,400,700,300|Crimson+Text:400,400italic,700 -->
+  <link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic|PT+Serif:400,700,400italic|Lobster|Open+Sans:300italic,400italic,400,600,700,300|Crimson+Text:400,400italic,700' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="css/main.css" />
   <script src="js/vendor/jquery-1.10.2.min.js"></script>
   <script src="js/vendor/dragdealer.js"></script>
@@ -14,7 +15,7 @@
     <div class="wrap">
       <header>
         <h1>typesetwith.me</h1>
-        <p>An interactive typography guide.</p>
+        <h2>A typography &amp; legibility sandbox</h2>
       </header>
       <div class="controls">
         <section class="buttons">
@@ -34,7 +35,19 @@
           </dl>
         </div>
         <section>
-          <h2>Line Width</h2>
+          <h2 data-load="definition-typeface.html">Typeface</h2>
+          <div id="adjust-face" class="dragdealer">
+            <div class="handle"></div>
+          </div>
+        </section>
+        <section>
+          <h2 data-load="definition-size.html">Type Size</h2>
+          <div id="adjust-size" class="dragdealer">
+            <div class="handle"></div>
+          </div>
+        </section>
+        <section>
+          <h2 data-load="definition-linewidth.html">Line Width</h2>
           <div id="adjust-width" class="dragdealer">
             <div class="handle"></div>
           </div>
@@ -46,73 +59,34 @@
           </div>
         </section>
         <section>
-          <h2>Type Size</h2>
-          <div id="adjust-size" class="dragdealer">
-            <div class="handle"></div>
-          </div>
-        </section>
-        <section>
-          <h2>Color</h2>
+          <h2 data-load="definition-color.html">Color</h2>
           <div id="adjust-color" class="dragdealer">
             <div class="handle"></div>
           </div>
         </section>
       </div>
       <footer>
-        Footer area
+        Created by <a href="http://www.tsmithcreative.com">TSmith</a>
+        <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.en_US">
+          <img alt="Creative Commons License: Attribution-NonCommercial-ShareAlike 3.0 Unported"
+            title="Creative Commons License: Attribution-NonCommercial-ShareAlike 3.0 Unported"
+            style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" />
+        </a>
       </footer>
     </div>
   </aside>
   <main>
     <article>
-      <h1>Title</h1>
+      <h1>Welcome to Typesetwith.me</h1>
 
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
-      tincidunt non risus id varius. Praesent feugiat quam non sem adipiscing,
-      faucibus malesuada sapien volutpat. Sed rutrum magna vitae nisl iaculis,
-      sed fermentum arcu pulvinar. Cras eros tellus, mollis vel odio vitae,
-      convallis fringilla purus. Ut pulvinar, neque quis blandit tristique,
-      elit quam aliquam lacus, a tristique eros dolor eget mi. Aliquam enim
-      odio, consectetur vitae egestas sed, posuere sit amet sapien. Proin
-      tellus augue, commodo ut felis et, vulputate volutpat lectus. Duis
-      facilisis, sapien quis viverra egestas, tortor eros tempus nisi, et
-      consequat urna justo eu odio. Mauris purus arcu, egestas sodales tortor
-      sed, molestie aliquam elit. Nunc eget adipiscing dolor. Donec in tellus a
-      quam pretium dictum. Morbi posuere tempor neque eget congue. Fusce arcu
-      nisi, facilisis at tortor ac, placerat tempus lacus.</p>
-
-      <h2>Subtitle</h2>
-
-      <p>Ut est tellus, lobortis quis malesuada eleifend, mattis vestibulum
-      ante. Fusce vitae imperdiet ante. Aenean pulvinar elit et nunc rutrum,
-      nec feugiat mauris euismod. Phasellus eget euismod sapien. Aliquam erat
-      volutpat. Suspendisse potenti. In non ipsum odio. Donec congue interdum
-      posuere. Integer leo tellus, ultricies tincidunt auctor id, condimentum
-      id lorem. Integer iaculis a libero vitae rhoncus. Nam sed bibendum
-      mauris. Nunc tincidunt sapien ac metus blandit, sit amet egestas ante
-      lobortis.</p>
-
-      <h2>Subtitle</h2>
-
-      <p>Ut est tellus, lobortis quis malesuada eleifend, mattis vestibulum
-      ante. Fusce vitae imperdiet ante. Aenean pulvinar elit et nunc rutrum,
-      nec feugiat mauris euismod. Phasellus eget euismod sapien. Aliquam erat
-      volutpat. Suspendisse potenti. In non ipsum odio. Donec congue interdum
-      posuere. Integer leo tellus, ultricies tincidunt auctor id, condimentum
-      id lorem. Integer iaculis a libero vitae rhoncus. Nam sed bibendum
-      mauris. Nunc tincidunt sapien ac metus blandit, sit amet egestas ante
-      lobortis.</p>
-
-      <h2>Subtitle</h2>
-
-      <p>Ut est tellus, lobortis quis malesuada eleifend, mattis vestibulum
-      ante. Fusce vitae imperdiet ante. Aenean pulvinar elit et nunc rutrum,
-      nec feugiat mauris euismod. Phasellus eget euismod sapien. Aliquam erat
-      volutpat. Suspendisse potenti. In non ipsum odio. Donec congue interdum
-      posuere. Integer leo tellus, ultricies tincidunt auctor id, condimentum
-      id lorem. Integer iaculis a libero vitae rhoncus. Nam sed bibendum
-      mauris. Nunc tincidunt sapien ac metus blandit, sit amet egestas ante
-      lobortis.</p>
+      <p>
+        Legibility is important to effective communication online and in print.
+        Learn how various typographic properties and metrics interact with each
+        other to affect the legibility of your message. Click any term to see
+        what it means. Adjust the sliders to discover legible combinations. The
+        <a href="javascript:loadRandomSample();">New Sample</a> button shows
+        new text to read to test drive your typesetting.
+      </p>
 
     </article>
   </main>

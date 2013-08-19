@@ -1,5 +1,11 @@
 ;(function($){
   $(document).ready(function(){
+    var originalArticle = $('article').html();
+
+    $('header h1').click(function(){
+      $('article').html(originalArticle);
+    });
+
     $('[data-load]').click(function(){
       loadSample($(this).data('load'));
     });
@@ -64,6 +70,25 @@
           .text(color + '/255')
           .removeClass('normal warning-low warning-high bad')
           .addClass(alertLevel(1/10, 3/10, 7/10, 8/10, x));
+      }
+    });
+
+    new Dragdealer('adjust-face',{
+      steps: 5,
+      snap: true,
+      x: (1/2),
+      animationCallback: function(x, y) {
+        var newFaceIndex = Math.floor(((4 * x)));
+        var faces = ['ptserif', 'crimson', 'opensans', 'lato', 'lobster'];
+        var labels = ['PT Serif', 'Crimson', 'Open Sans', 'Lato', 'Lobster'];
+        $('article')
+          .removeClass(faces.join(' '))
+          .addClass(faces[newFaceIndex]);
+        $('#adjust-face .handle')
+          .text(labels[newFaceIndex])
+          .removeClass('normal warning-low warning-high bad')
+          .addClass(alertLevel(-1, -1, 4/5, 6/5, x));
+        updateMetrics();
       }
     });
   })

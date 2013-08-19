@@ -497,6 +497,21 @@ img, video {
   max-width: 100%;
   height: auto; }
 
+.lato {
+  font-family: 'Lato', sans-serif; }
+
+.ptserif {
+  font-family: 'PT Serif', serif; }
+
+.crimson {
+  font-family: 'Crimson Text', serif; }
+
+.opensans {
+  font-family: 'Open Sans', sans-serif; }
+
+.lobster {
+  font-family: 'Lobster', cursive; }
+
 html {
   height: 100%; }
 
@@ -517,19 +532,41 @@ aside {
   clear: none;
   padding: 0.5em; }
   aside .wrap {
-    border-top: 1px solid #fbfbfb;
-    border-bottom: 1px solid #e1e1e1; }
+    border-top: 1px solid white;
+    border-bottom: 1px solid #d4d4d4; }
+  aside header h1, aside .controls h2, aside dt {
+    cursor: pointer; }
+  aside header h2 {
+    font-weight: 600;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 1em;
+    text-shadow: 1px 1px 0px white; }
+  aside footer {
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.75em;
+    font-weight: 600;
+    text-shadow: 1px 1px 0px white; }
+    aside footer img {
+      display: block;
+      margin: 0.5em auto; }
+    aside footer a {
+      text-decoration: none; }
   aside header, aside .controls, aside footer {
+    color: #515151;
     padding: 0.5em 0;
-    border-top: 1px solid #e1e1e1;
-    border-bottom: 1px solid #fbfbfb; }
+    border-top: 1px solid #d4d4d4;
+    border-bottom: 1px solid white; }
   aside section h2 {
     padding: 0.25em;
     margin: 0.5em 0 0 0;
     background: #f3f3f3;
     border: 1px solid #e1e1e1;
     border-bottom: 0;
-    color: #00a2e6;
+    color: #26a4d9;
     text-transform: uppercase;
     font-weight: 300;
     letter-spacing: 2px; }
@@ -537,7 +574,7 @@ aside {
     border-bottom: 1px solid #e1e1e1; }
   aside section h2:hover {
     background: #007eb3;
-    border-color: #006c99 !important;
+    border-color: #00a2e6 !important;
     color: #eeeeee; }
   aside section.buttons {
     /* for IE 6/7 */
@@ -576,7 +613,7 @@ aside {
       width: 49.5%;
       float: left;
       margin: 0;
-      background: #eeeeee;
+      background: white;
       font-size: 0.875em; }
       aside .metrics .item:first-child {
         margin-right: 1%; }
@@ -591,24 +628,24 @@ aside {
       letter-spacing: 2px;
       padding-bottom: 2px;
       background: #f3f3f3;
-      color: #00a2e6; }
+      color: #26a4d9; }
     aside .metrics .item.active dt, aside .metrics .item dt:hover {
       background: #007eb3;
       color: #eeeeee;
-      border-color: #0090cc !important; }
+      border-color: #00a2e6 !important; }
     aside .metrics dd {
       border-top: 0;
       font-weight: bold;
       background: white; }
       aside .metrics dd.normal {
         color: #009900;
-        background: rgba(0, 153, 0, 0.175); }
+        background: rgba(0, 153, 0, 0.2); }
       aside .metrics dd.warning-high, aside .metrics dd.warning-low {
         color: #cc8822;
-        background: rgba(204, 136, 34, 0.175); }
+        background: rgba(204, 136, 34, 0.2); }
       aside .metrics dd.bad {
         color: #cc3300;
-        background: rgba(204, 51, 0, 0.175); }
+        background: rgba(204, 51, 0, 0.2); }
 
 main {
   width: 75%;
@@ -622,11 +659,11 @@ main {
     -webkit-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
     -moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
-    background: #f3f3f3;
-    border-top: 0.5em solid #ccc;
-    border-bottom: 0.5em solid #ccc;
+    background: #f6f6f6;
+    border-top: 0.5em solid #007eb3;
+    border-bottom: 0.5em solid #007eb3;
     padding: 1em; }
-    main article, main article * {
+    main article {
       -webkit-transition: all 0.25s ease;
       -moz-transition: all 0.25s ease;
       -o-transition: all 0.25s ease;
@@ -638,15 +675,20 @@ main {
     main article :last-child {
       margin-bottom: 0; }
     main article .citation {
+      -webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.08);
+      -moz-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.08);
+      box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.08);
       position: relative;
-      left: -1em;
+      left: -1.25em;
       width: 100%;
-      background: #ccc;
-      border-top: 1px dotted #ccc;
-      border-bottom: 1px dotted #ccc;
-      padding: 1em;
+      background: #fbfbfb;
+      border-top: 1px solid #e6e6e6;
+      border-bottom: 1px solid #e6e6e6;
+      padding: 1.25em;
       text-align: right;
       font-style: italic; }
+      main article .citation a {
+        font-size: 0.75em; }
 
 /**
  * Dragdealer JS v0.9.5
