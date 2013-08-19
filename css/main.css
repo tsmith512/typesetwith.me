@@ -541,7 +541,7 @@ aside {
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 1px;
-    font-size: 1em;
+    font-size: 0.875em;
     text-shadow: 1px 1px 0px white; }
   aside footer {
     text-align: center;
@@ -569,6 +569,7 @@ aside {
     color: #26a4d9;
     text-transform: uppercase;
     font-weight: 300;
+    font-size: 1.25em;
     letter-spacing: 2px; }
   aside section h2.solo {
     border-bottom: 1px solid #e1e1e1; }
