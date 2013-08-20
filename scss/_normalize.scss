@@ -223,6 +223,11 @@ h6 {
   @include trailer(1, $h6-font-size);
 }
 
+h1, h2, h3, h4, h5, h6 {
+  // Headings don't need a high line-height
+  line-height: 1.15;
+}
+
 /**
  * Address styling not present in IE 8/9, Safari 5, and Chrome.
  */

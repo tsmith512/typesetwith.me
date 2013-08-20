@@ -1,8 +1,175 @@
 aside {
-  background: black;
-  color: white;
+  float: left;
+  width: 375px;
+  padding: 0.5em;
 
-  @include respond-to('medium') {
-    @include grid-span(3,1);
+  .wrap {
+    border-top: 1px solid lighten($light, 10%);
+    border-bottom: 1px solid darken($light, 10%);
+  }
+
+  header h1, .controls h2, dt {
+    cursor: pointer;
+    margin-top: 10px;
+    margin-bottom: 0;
+  }
+
+  header {
+    h1 {
+      background: {
+        image: url('../gfx/logo.png');
+        size: contain;
+        position: center center;
+        repeat: no-repeat;
+      }
+
+      html.svg & {
+        background-image: url('../gfx/logo.svg');
+      }
+
+      max-width: 300px;
+      min-height: 110px;
+      margin: 10px auto;
+
+      font-size: 0;
+      text-indent: -1000px;
+      overflow: hidden;
+    }
+
+    h2 {
+      margin: 10px auto;
+      font-weight: 600;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 0.875em;
+      @include text-shadow(1px 1px 0px white);
+    }
+  }
+
+  footer {
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.75em;
+    font-weight: 600;
+    @include text-shadow(1px 1px 0px white);
+
+    img {
+      display: block;
+      margin: 0.5em auto;
+    }
+
+    a {
+      text-decoration: none;
+    }
+  }
+
+  header, .controls, footer {
+    color: $med;
+    padding: 0.5em 0;
+    border-top: 1px solid darken($light, 10%);
+    border-bottom: 1px solid lighten($light, 10%);
+  }
+
+  section {
+
+    h2 {
+      padding: 0.25em;
+      margin: 0.5em 0 0 0;
+      background: lighten($light, 2%);
+      border: 1px solid darken($light, 5%);
+      border-bottom: 0;
+      color: desaturate(lighten($blue, 15%), 30%);
+      text-transform: uppercase;
+      font-weight: 300;
+      font-size: 1.25em;
+      letter-spacing: 2px;
+    }
+
+    h2.solo {
+      border-bottom: 1px solid darken($light, 5%);
+    }
+
+    h2:hover {
+      background: $blue;
+      border-color: lighten($blue, 10%) !important;
+      color: $light;
+    }
+
+
+    &.buttons {
+      @include clearfix;
+
+      h2 {
+        width: 49.5%;
+        float: left;
+        margin: 0;
+        &:first-child { margin-right: 1%; }
+      }
+
+    }
+  }
+
+  .metrics {
+    @include clearfix;
+    margin-top: 0.75em;
+
+    dl {
+      margin: 0;
+    }
+
+    .item {
+      width: 49.5%;
+      float: left;
+      margin: 0;
+      &:first-child { margin-right: 1%; }
+
+      background: white;
+      font-size: 0.875em;      
+    }
+
+    dt, dd {
+      display: block;
+      margin: 0;
+      padding: 0.25em;
+      border: 1px solid darken($light, 5%);
+      text-align: center;
+    }
+
+    dt {
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      padding-bottom: 2px;
+      background: lighten($light, 2%);
+      color: desaturate(lighten($blue, 15%), 30%);
+    }
+
+    .item.active dt, .item dt:hover {
+      background: $blue;
+      color: $light;
+      border-color: lighten($blue, 10%) !important;
+    }
+
+    dd {
+      border-top: 0;
+      font-weight: bold;
+      background: white;
+
+      &.normal {
+        color: $green;
+        background: rgba($green, 0.2);
+      }
+
+      &.warning-high, &.warning-low {
+        color: $orange;
+        background: rgba($orange, 0.2);
+      }
+
+      &.bad {
+        color: $red;
+        background: rgba($red, 0.2);
+      }
+    }
   }
 }
