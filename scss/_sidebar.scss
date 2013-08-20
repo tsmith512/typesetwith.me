@@ -1,6 +1,6 @@
 aside {
-  @include grid-span(3,1);
-
+  float: left;
+  width: 375px;
   padding: 0.5em;
 
   .wrap {
@@ -10,10 +10,34 @@ aside {
 
   header h1, .controls h2, dt {
     cursor: pointer;
+    margin-top: 10px;
+    margin-bottom: 0;
   }
 
   header {
+    h1 {
+      background: {
+        image: url('../gfx/logo.png');
+        size: contain;
+        position: center center;
+        repeat: no-repeat;
+      }
+
+      html.svg & {
+        background-image: url('../gfx/logo.svg');
+      }
+
+      max-width: 300px;
+      min-height: 110px;
+      margin: 10px auto;
+
+      font-size: 0;
+      text-indent: -1000px;
+      overflow: hidden;
+    }
+
     h2 {
+      margin: 10px auto;
       font-weight: 600;
       text-align: center;
       text-transform: uppercase;
