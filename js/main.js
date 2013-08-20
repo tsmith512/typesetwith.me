@@ -153,6 +153,7 @@
     }).done(function(data){
         $('article').html(data);
         setTimeout(charsPerLine, 1000);
+        ga('send', 'pageview', '/copy/' + sample);
       })
       .fail(function(){
         alert('Unable to load text.');
