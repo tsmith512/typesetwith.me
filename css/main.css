@@ -746,11 +746,11 @@ main {
     font-weight: bold;
     color: rgba(255, 255, 255, 0.4); }
   .dragdealer .handle:before {
-    left: 3px;
-    content: "\2190"; }
+    left: 2px;
+    content: "\2329"; }
   .dragdealer .handle:after {
-    right: 3px;
-    content: "\2192"; }
+    right: 2px;
+    content: "\232A"; }
 
 .dragdealer .disabled {
   background: #898989; }
