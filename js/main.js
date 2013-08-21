@@ -156,7 +156,7 @@
     $.ajax({
       dataType: "html",
       url:('/copy/' + sample),
-      cache: false
+      cache: true
     }).done(function(data){
         $('article').html(data);
         setTimeout(charsPerLine, 1000);
@@ -171,7 +171,7 @@
     $.ajax({
       dataType: "json",
       url:'/copy/manifest.json',
-      cache: false
+      cache: true
     }).done(function(data){
         var sample = data[Math.floor(Math.random()*data.length)];
         loadSample(sample);
