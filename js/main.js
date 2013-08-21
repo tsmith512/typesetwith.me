@@ -17,6 +17,7 @@
     new Dragdealer('adjust-lineheight',{
       steps: 10 + 1,
       snap: true,
+      speed: 0,
       x: (5/10),
       animationCallback: function(x, y) {
         var lineHeight = (1.25*x) + 1;
@@ -32,6 +33,7 @@
     new Dragdealer('adjust-width',{
       steps: 10 + 1,
       snap: true,
+      speed: 0,
       x: (5/10),
       animationCallback: function(x, y) {
         var articleWidth = (1000*x) + 100; // 0 = 100px --> 1 = 1100px;
@@ -47,6 +49,7 @@
     new Dragdealer('adjust-size',{
       steps: 10 + 1,
       snap: true,
+      speed: 0,
       x: (5/10),
       animationCallback: function(x, y) {
         var fontSize = (20 * x) + 8; // 0 = 8px --> 1 = 28px;
@@ -62,6 +65,7 @@
     new Dragdealer('adjust-color',{
       steps: 10 + 1,
       snap: true,
+      speed: 0,
       x: (5/10),
       animationCallback: function(x, y) {
         var color = Math.floor(((200 * x) + 0)); // 0 = 0 --> 1 = 200
@@ -76,6 +80,7 @@
     new Dragdealer('adjust-face',{
       steps: 5,
       snap: true,
+      speed: 0,
       x: (1/2),
       animationCallback: function(x, y) {
         var newFaceIndex = Math.floor(((4 * x)));
@@ -151,7 +156,7 @@
     $.ajax({
       dataType: "html",
       url:('/copy/' + sample),
-      cache: false
+      cache: true
     }).done(function(data){
         $('article').html(data);
         setTimeout(charsPerLine, 1000);
@@ -166,7 +171,7 @@
     $.ajax({
       dataType: "json",
       url:'/copy/manifest.json',
-      cache: false
+      cache: true
     }).done(function(data){
         var sample = data[Math.floor(Math.random()*data.length)];
         loadSample(sample);
