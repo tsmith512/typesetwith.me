@@ -1,7 +1,11 @@
 aside {
-  float: left;
-  width: 375px;
+  max-width: 100%;
   padding: 0.5em;
+
+  @include breakpoint($floating-sidebar) {
+    width: 375px;
+    float: left;
+  }
 
   .wrap {
     border-top: 1px solid lighten($light, 10%);
@@ -17,14 +21,10 @@ aside {
   header {
     h1 {
       background: {
-        image: url('../gfx/logo.png');
+        image: url('../gfx/logo.svg');
         size: contain;
         position: center center;
         repeat: no-repeat;
-      }
-
-      html.svg & {
-        background-image: url('../gfx/logo.svg');
       }
 
       max-width: 300px;
@@ -43,7 +43,7 @@ aside {
       text-transform: uppercase;
       letter-spacing: 1px;
       font-size: 0.875em;
-      @include text-shadow(1px 1px 0px white);
+      text-shadow: 1px 1px 0px white;
     }
   }
 
@@ -53,7 +53,7 @@ aside {
     letter-spacing: 1px;
     font-size: 0.75em;
     font-weight: 600;
-    @include text-shadow(1px 1px 0px white);
+    text-shadow: 1px 1px 0px white;
 
     img {
       display: block;
@@ -83,7 +83,10 @@ aside {
       color: desaturate(lighten($blue, 15%), 30%);
       text-transform: uppercase;
       font-weight: 300;
-      font-size: 1.25em;
+      font-size: 0.875em;
+      @include breakpoint(375px) {
+        font-size: 1.25em;
+      }
       letter-spacing: 2px;
     }
 
