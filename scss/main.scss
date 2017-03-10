@@ -3,19 +3,6 @@
 @import '../node_modules/sass-toolkit/stylesheets/toolkit';
 @import '../node_modules/sass-toolkit/stylesheets/toolkit/kickstart';
 @import '../node_modules/breakpoint-sass/stylesheets/breakpoint';
-@import '../node_modules/singularitygs/stylesheets/singularitygs';
-
-// Setup Breakpoints
-$breakpoints:
-  // 'handheld'   // Mobile-first: default IS handheld
-  'handheld-only' (max-width    679px), // For styles
-  'narrow'        (min-width    680px),
-  'medium'        (min-width    980px),
-  'wide'          (min-width   1080px),
-  'portrait'      (orientation portrait);
-
-$grids: 12;
-$gutters: 0;
 
 $blue: darken(#00B4FF, 15%);
 $green: #009900;
