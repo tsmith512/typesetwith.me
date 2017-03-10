@@ -43,7 +43,7 @@ aside {
       text-transform: uppercase;
       letter-spacing: 1px;
       font-size: 0.875em;
-      @include text-shadow(1px 1px 0px white);
+      text-shadow: 1px 1px 0px white;
     }
   }
 
@@ -53,7 +53,7 @@ aside {
     letter-spacing: 1px;
     font-size: 0.75em;
     font-weight: 600;
-    @include text-shadow(1px 1px 0px white);
+    text-shadow: 1px 1px 0px white;
 
     img {
       display: block;

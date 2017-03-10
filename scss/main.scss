@@ -1,15 +1,14 @@
 // Imports
-@import "compass/css3";
-@import "breakpoint";
-@import "singularitygs";
-
-@import "normalize";
-@import "toolkit";
+@import '../node_modules/normalize-scss/sass/normalize';
+@import '../node_modules/sass-toolkit/stylesheets/toolkit';
+@import '../node_modules/sass-toolkit/stylesheets/toolkit/kickstart';
+@import '../node_modules/breakpoint-sass/stylesheets/breakpoint';
+@import '../node_modules/singularitygs/stylesheets/singularitygs';
 
 // Setup Breakpoints
 $breakpoints:
   // 'handheld'   // Mobile-first: default IS handheld
-  'handheld-only' (max-width    679px), // For styles 
+  'handheld-only' (max-width    679px), // For styles
   'narrow'        (min-width    680px),
   'medium'        (min-width    980px),
   'wide'          (min-width   1080px),
