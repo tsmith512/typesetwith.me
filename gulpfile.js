@@ -94,8 +94,15 @@ gulp.task('js', 'Aggregate JavaScript', () => {
 });
 
 
-// HTML
-gulp.task('html', 'Aggregate and minify HTML', ['js', 'sass'], () => {
+// HTML & COPY SAMPLES
+
+gulp.task('copy', 'Move the copy samples into position', () => {
+  return gulp.src(['./copy/**/*.*'])
+  .pipe(gulp.dest('./dist/copy/'));
+});
+
+
+gulp.task('html', 'Aggregate and minify HTML', ['copy'], () => {
   return gulp.src('index.html')
     .pipe(htmlmin({
       collapseWhitespace: true,
