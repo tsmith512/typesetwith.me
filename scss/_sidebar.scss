@@ -17,14 +17,10 @@ aside {
   header {
     h1 {
       background: {
-        image: url('../gfx/logo.png');
+        image: url('../gfx/logo.svg');
         size: contain;
         position: center center;
         repeat: no-repeat;
-      }
-
-      html.svg & {
-        background-image: url('../gfx/logo.svg');
       }
 
       max-width: 300px;
