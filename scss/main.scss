@@ -4,6 +4,8 @@
 @import '../node_modules/sass-toolkit/stylesheets/toolkit/kickstart';
 @import '../node_modules/breakpoint-sass/stylesheets/breakpoint';
 
+$floating-sidebar: 780px;
+
 $blue: darken(#00B4FF, 15%);
 $green: #009900;
 $orange: #CC8822;

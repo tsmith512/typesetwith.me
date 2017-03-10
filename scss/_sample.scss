@@ -1,5 +1,7 @@
 main {
-  margin-left: 375px;
+  @include breakpoint($floating-sidebar) {
+    margin-left: 375px;
+  }
 
   padding: 0.5em;
 
