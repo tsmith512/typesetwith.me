@@ -1,8 +1,4 @@
 main {
-  @include breakpoint($floating-sidebar) {
-    margin-left: 375px;
-  }
-
   padding: 0.5em;
 
   article {
@@ -16,6 +12,10 @@ main {
       bottom: 0.5em solid $blue;
     }
     padding: 1em;
+
+    @include breakpoint($floating-sidebar) {
+      margin-left: 375px;
+    }
 
     & { transition: all .25s ease; }
 
