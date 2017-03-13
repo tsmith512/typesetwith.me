@@ -10,7 +10,7 @@ main {
     -moz-box-sizing: content-box;
     box-sizing: content-box; /* For accurate column width slider */
     box-shadow: 0px 0px 15px rgba(0,0,0,0.15);
-    background: lighten($light, 3%);
+    background: #FFFFFF; /* Not pretty, but makes contrast easier to calculate */
     border: {
       top: 0.5em solid $blue;
       bottom: 0.5em solid $blue;

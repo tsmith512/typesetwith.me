@@ -171,3 +171,7 @@ gulp.task('publish', 'Build the site and publish to S3', (cb) => {
 */
 
 gulp.task('default', false, ['help']);
+
+gulp.task('watch', 'Watch everything and rebuild', () => {
+  gulp.watch(['./*.*', './**/*.*', '!./node_modules/**', '!./dist/**'], ['build']);
+});
