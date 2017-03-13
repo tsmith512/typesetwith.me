@@ -63,19 +63,63 @@
     });
 
     new Dragdealer('adjust-color',{
-      steps: 10 + 1,
+      steps: 20 + 1,
       snap: true,
       speed: 0,
       x: (5/10),
       animationCallback: function(x, y) {
-        var color = Math.floor(((200 * x) + 0)); // 0 = 0 --> 1 = 200
-        $('article').css('color', 'rgb(' + color + ',' + color + ',' + color + ')');
+        var color = Math.floor(((170 * x) + 0)); // 0 = 0 --> 1 = 180
+          // Yes, that's a weird stopping number, but we're showing hex anyway
+
+        // Show users the hex color instead of X/255
+        var hexcomponent = ("0" + color.toString(16)).substr(-2);
+        var hexcolor = Array(4).join(hexcomponent);
+
+        // Using logic informed by WebAIM (see next function's comment), get the
+        // lightness for white and for the color dialed by the user.
+        var lightness = getL(color);
+        var white = getL(255); // The container background is white.
+
+        var ratio = (white + 0.05)/(lightness + 0.05);
+        var ratioText = (Math.round(ratio*100)/100) + ":1";
+
+        $('article').css('color', '#' + hexcolor);
+
+        // This would normally be alertLevel(), but the math is a little different
+        // here. Adapted from http://webaim.org/resources/contrastchecker/contrastchecker.js
+        var className;
+        if ( ratio >= 7 ) {
+          className = 'normal';
+        } else if ( ratio >= 4.5 && ratio < 7 ) {
+          className = 'warning-low';
+        } else if ( ratio < 4.5 ) {
+          className = 'bad';
+        }
+
         $('#adjust-color .handle')
-          .text(color + '/255')
+          .html("#" + hexcolor + ", &#9680; " + ratioText)
           .removeClass('normal warning-low warning-high bad')
-          .addClass(alertLevel(1/10, 3/10, 7/10, 8/10, x));
+          .addClass(className); // Set above instead of alertLevel()
       }
     });
+
+    /**
+     * This is very simplified but the code from WebAIM's contrast checker at
+     * http://webaim.org/resources/contrastchecker/contrastchecker.js . This
+     * revision doesn't take user input, assumes that the background is white,
+     * assumes that the contrasting text color is greyscale, and does its work
+     * with less code. But the mathematics involved are entirely WebAIM's. I
+     * didn't want to screw with that because it is important that I give
+     * correct examples.
+     */
+    function getL(value) {
+      var X = value / 255;
+          X = (X <= 0.03928) ? X/12.92 : Math.pow(((X + 0.055)/1.055), 2.4);
+          // Originally this would be done for each of RGB components.
+      var L = (0.2126 * X + 0.7152 * X + 0.0722 * X);
+        // Originally:  R            G            B
+      return L;
+    }
 
     new Dragdealer('adjust-face',{
       steps: 5,
@@ -180,5 +224,4 @@
         alert('Unable to load text: ' + textStatus);
       })
   }
-
 })(jQuery);
