@@ -35,7 +35,6 @@ const fs = require('fs');
 const glob = require('glob');
 const htmlmin = require('gulp-htmlmin');
 const imagemin = require('gulp-imagemin');
-const inlinesource = require('gulp-inline-source');
 const rename = require("gulp-rename");
 const resize = require('gulp-image-resize');
 const runSequence = require('run-sequence');
@@ -108,10 +107,6 @@ gulp.task('html', 'Aggregate and minify HTML', ['copy'], () => {
       collapseWhitespace: true,
       conservativeCollapse: true,
     }))
-    // .pipe(inlinesource({
-    //   compress: false,
-    //   rootpath: 'dist/',
-    // }))
     .pipe(gulp.dest('dist'));
 });
 
@@ -126,39 +121,6 @@ gulp.task('html', 'Aggregate and minify HTML', ['copy'], () => {
 
 gulp.task('build', 'Run all site-generating tasks: sass, js, graphics, icons, then html', (cb) => {
   runSequence(['sass', 'graphics', 'js'], 'html', cb);
-});
-
-gulp.task('publish-s3', 'Sync the site to S3', (cb) => {
-  // create a new publisher using S3 options
-  // http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/S3.html#constructor-property
-  var publisher = awspublish.create({
-    region: 'us-west-1',
-    params: {
-      Bucket: 'typesetwithme'
-    },
-  });
-
-  // define custom headers
-  var headers = {
-    'Cache-Control': 'max-age=2592000, no-transform, public'
-  };
-
-  return gulp.src('./dist/**/*.*')
-    // publisher will add Content-Length, Content-Type and headers specified above
-    // If not specified it will set x-amz-acl to public-read by default
-    .pipe(publisher.publish(headers))
-
-    .pipe(publisher.sync())
-
-    // create a cache file to speed up consecutive uploads
-    .pipe(publisher.cache())
-
-     // print upload updates to console
-    .pipe(awspublish.reporter());
-});
-
-gulp.task('publish', 'Build the site and publish to S3', (cb) => {
-  runSequence(['build'], 'publish-s3', cb);
 });
 
 /*
