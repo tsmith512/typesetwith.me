@@ -23,6 +23,6 @@
     "gulp-util": "^3.0.7",
     "normalize-scss": "^6.0.0",
     "run-sequence": "^1.2.2",
-    "sass-toolkit": "^2.10.2",
+    "sass-toolkit": "^2.10.2"
   }
 }
